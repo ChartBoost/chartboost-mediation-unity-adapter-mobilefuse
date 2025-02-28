@@ -12,7 +12,7 @@ In order to add the Chartboost Mediation Unity SDK - MobileFuse Adapter to your 
 
 ```json
 "dependencies": {
-    "com.chartboost.mediation.unity.adapter.mobilefuse": "5.0.3",
+    "com.chartboost.mediation.unity.adapter.mobilefuse": "5.0.4",
     ...
 },
 "scopedRegistries": [
