@@ -1,6 +1,6 @@
 {
     "name": "com.chartboost.mediation.unity.adapter.mobilefuse",
-    "version": "5.0.7",
+    "version": "5.0.8",
     "license": "MIT",
     "displayName": "Chartboost Mediation Adapter - MobileFuse",
     "description": "The Chartboost Mediation Unity SDK Adapter for MobileFuse.",
