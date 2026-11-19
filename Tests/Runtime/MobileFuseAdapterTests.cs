@@ -1,34 +1,17 @@
-using Chartboost.Logging;
 using Chartboost.Mediation.MobileFuse;
-using Chartboost.Tests.Runtime;
+using Chartboost.Testing;
 using NUnit.Framework;
 
 namespace Chartboost.Tests
 {
     internal class MobileFuseAdapterTests
     {
-        [SetUp]
-        public void SetUp()
-            => LogController.LoggingLevel = LogLevel.Debug;
+        [Test]
+        public void Identity() => AdapterContract.AssertIdentity("mobilefuse", "MobileFuse", MobileFuseAdapter.AdapterUnityVersion,
+            MobileFuseAdapter.PartnerIdentifier, MobileFuseAdapter.PartnerDisplayName, MobileFuseAdapter.AdapterNativeVersion, MobileFuseAdapter.PartnerSDKVersion);
 
         [Test]
-        public void AdapterNativeVersion()
-            => TestUtilities.TestStringGetter(() => MobileFuseAdapter.AdapterNativeVersion);
-
-        [Test]
-        public void PartnerSDKVersion()
-            => TestUtilities.TestStringGetter(() => MobileFuseAdapter.PartnerSDKVersion);
-
-        [Test]
-        public void PartnerIdentifier()
-            => TestUtilities.TestStringGetter(() => MobileFuseAdapter.PartnerIdentifier);
-
-        [Test]
-        public void PartnerDisplayName()
-            => TestUtilities.TestStringGetter(() => MobileFuseAdapter.PartnerDisplayName);
-
-        [Test]
-        public void TestMode() =>
-            TestUtilities.TestBooleanAccessor(() => MobileFuseAdapter.TestMode, value => MobileFuseAdapter.TestMode = value);
+        public void TestModeKeepsItsValue()
+            => AdapterContract.AssertKeeps(() => MobileFuseAdapter.TestMode, value => MobileFuseAdapter.TestMode = value, true, false);
     }
 }
